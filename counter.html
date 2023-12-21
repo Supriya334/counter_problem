@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <h1 id="counter">0</h1>
+    <button id="start">Start</button>
+    <button id="inc">Inc</button>
+    <button id="dec">Dec</button>
+</body>
+</html>
+<script>
+
+    let counter=document.getElementById("counter")
+    let start=document.getElementById("start")
+    let inc=document.getElementById("inc")
+    let dec=document.getElementById("dec")
+
+let i=1;
+
+    inc.addEventListener("click",function(){
+        counter.innerText=i++
+    })
+
+dec.addEventListener("click",function(){
+    counter.innerText=i--
+})
+
+// start.addEventListener("click",function(){
+// setInterval(function(i){
+//     let a=0
+//     // console.log(i)
+// counter.innerText=i++
+// start.innerText="end"
+// },1000)
+
+// })
+
+
+
+let intervalId;
+
+start.addEventListener("click", function () {
+  if (start.innerText === "Start") {
+    start.innerText = "End";
+    intervalId = setInterval(function () {
+      i++;
+      counter.innerText = i;
+    }, 1000);
+  } else {
+    start.innerText = "Start";
+    clearInterval(intervalId);
+  }
+});
+
+</script>
